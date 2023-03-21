@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sumTwoSmallestNums(arr)
+        {
+            let arr1 = arr.sort(function(a,b)
+            {
+                return a-b;
+            })
+            let arr2=[];
+            for(let i of arr1)
+            {
+                if (i>=0)
+                {
+                    arr2.push(i);
+                }
+            }
+            return arr2[0]+arr2[1];
+        }
+
+        alert(sumTwoSmallestNums([19,5,42,2,77]));
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function myFunction(obj)
+        {
+            let obj1 = {};
+            let arr = Object.keys(obj);
+            for(let i of arr)
+            {
+                if (i != 'b')
+                {
+                    let a = obj[i];
+                    obj1[i] = a;
+                }
+            }
+            return obj1;
+        }
+
+        console.log(myFunction({a:7,b:0,d:8}));
+    </script>
+</body>
+</html>
