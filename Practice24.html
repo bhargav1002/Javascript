@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body style="background-color: grey;">
+    <div id="display" style="display:flex; column-gap: 10px; padding: 10px;">
+
+    </div>
+    <script>
+        fetch("data.json")
+            .then(response => response.json())
+            .then(y => myFunction(y));
+
+        function myFunction(y) {
+            let str = '';
+            for (let i of y) {
+
+                str += '<div class="card" style="width: 18rem;"><div class="card-body" ><img style="padding-left: 40px;" src="data:image/png;base64,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" alt =""><h5 class="card-title" style="text-align: center;">' + i.firstName + ' ' + i.lastName + '</h5><h6 class="card-subtitle mb-2" style="text-align: center; color: gold;">' + i.email + '</h6></div></div>';
+            }
+            document.getElementById("display").innerHTML = str;
+        }
+
+    </script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

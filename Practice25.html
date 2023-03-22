@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <form onsubmit="return check()">
+            <label for="userid">Userid : </label>
+            <input type="text" id="userid" name="userid" required/><br><br>
+
+            <label for="pass">Password : </label>
+            <input type="text" id="pass" name="pass" required/><br><br>
+
+            <label for="username">Name : </label>
+            <input type="text" id="username" name="username" required/><br><br>
+
+            <label for="address">Address : </label>
+            <input type="text" id="address" name="address" /><br><br>
+
+            <label for="birth">Date : </label>
+            <input type="date" id="birth" name="birth" /><br><br>
+
+            <label for="country">Country : </label>
+            <select id="country">
+                <option value="India" id="india">India</option>
+                <option value="United States" id="United States">United States</option>
+                <option value="United Kingdom" id="United Kingdom">United Kingdom</option>
+                <option value="Canada" id="Canada">Canada</option>
+            </select><br><br>
+
+            <label for="zip">Zip Code : </label>
+            <input type="number" id="zip" name="zip" required/><br><br>
+
+            <label for="useremail">Email : </label>
+            <input type="email" id="useremail" name="useremail" required/><br><br>
+
+            <label for="language">Language : </label>
+            <input type="radio" value="English" id="English" name="language"><label for="English">English</label>
+            <input type="radio" value="Hindi" id="Hindi" name="language"><label for="Hindi">Hindi</label>
+            <input type="radio" value="Gujarati" id="Gujarati" name="language"><label
+                for="Gujarati">Gujarati</label><br><br>
+
+            <input type="submit" id="btn" value="Submit" />
+        </form>
+
+    </div>
+
+    <script>
+        function check() {
+            if (check_id() == 1) {
+                return 1;
+            }
+            if (check_pass() == 1) {
+                return 1;
+            }
+            if (check_name() == 1) {
+                return 1;
+            }
+            if (check_language() == 1) {
+                return 1;
+            }
+            return false;
+
+        }
+
+        function check_id() {
+            let v = document.getElementById("userid").value.length;
+            if (v < 5 || v > 12) {
+                alert("User Id must be of length 5 to 12");
+                return 1;
+            }
+        }
+
+        function check_pass() {
+            let v = document.getElementById("pass").value.length;
+
+            if (v < 7 || v > 12) {
+                alert("Password must be of length 7 to 12");
+                return 1;
+            }
+        }
+
+        function check_name() {
+            let v = document.getElementById("username").value;
+            if (!v.match(/^[A-Za-z]+$/)) {
+                alert("Name should only contain alphabets");
+                return 1;
+            }
+        }
+
+        function check_language() {
+            if (!document.querySelector("input[type='radio']:checked"))
+            {
+                alert("Language needs to be Selected");
+                return 1;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
